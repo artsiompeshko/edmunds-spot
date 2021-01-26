@@ -68,6 +68,11 @@ const MapContainer = ({ make, zipCode }) => {
           setActiveDealerId(id);
 
           if (dealer?.carcodeInfo?.id) {
+            if (window.CarcodeWidget) {
+              new window.CarcodeWidget().destroy();
+              window.CarcodeWidget = null;
+            }
+
             setCarCodeLoading(true);
 
             loadCarCode(dealer.carcodeInfo.id, () => {
@@ -82,11 +87,6 @@ const MapContainer = ({ make, zipCode }) => {
 
         marker.on('popupclose', () => {
           setActiveDealerId(null);
-
-          if (window.CarcodeWidget) {
-            new window.CarcodeWidget().destroy();
-            window.CarcodeWidget = null;
-          }
         });
 
         nextMarkers[id] = marker;
