@@ -7,6 +7,7 @@ import { DEFAULT_ZOOM, INTEGRITY_KEY, MAP_URL } from '../../core/constants/basic
 import { load } from '../../core/utils/script';
 
 import Map from './map.presentation';
+import { loadCarCode } from '../../core/carcode';
 
 const MapContainer = ({ make, zipCode }) => {
   const [mapLoaded, setMapLoaded] = useState(false);
@@ -14,6 +15,8 @@ const MapContainer = ({ make, zipCode }) => {
   const [markers, setMarkers] = useState({});
   const [activeDealerId, setActiveDealerId] = useState(null);
   const [dealersLoading, setDealersLoading] = useState(false);
+  const [carCodeLoading, setCarCodeLoading] = useState(false);
+  const [hasCarCode, setHasCarCode] = useState(false);
 
   const onMapLoad = () => {
     window.map = window.L.map('mapid', { zoomControl: false }).setView([34.0522, -118.2437], DEFAULT_ZOOM);
@@ -32,7 +35,7 @@ const MapContainer = ({ make, zipCode }) => {
 
   useEffect(() => {
     if (!mapLoaded) {
-      load(MAP_URL, INTEGRITY_KEY, onMapLoad);
+      load(MAP_URL, onMapLoad);
     }
   }, [mapLoaded]);
 
@@ -63,10 +66,27 @@ const MapContainer = ({ make, zipCode }) => {
 
         marker.on('popupopen', () => {
           setActiveDealerId(id);
+
+          if (dealer?.carcodeInfo?.id) {
+            setCarCodeLoading(true);
+
+            loadCarCode(dealer.carcodeInfo.id, () => {
+              const carCodeSdkButton = document.querySelector('.sms-button');
+              if (carCodeSdkButton) {
+                carCodeSdkButton.disabled = false;
+              }
+              setCarCodeLoading(false);
+            });
+          }
         });
 
         marker.on('popupclose', () => {
           setActiveDealerId(null);
+
+          if (window.CarcodeWidget) {
+            new window.CarcodeWidget().destroy();
+            window.CarcodeWidget = null;
+          }
         });
 
         nextMarkers[id] = marker;
@@ -128,6 +148,8 @@ const MapContainer = ({ make, zipCode }) => {
     <Map
       dealers={dealers}
       zipCode={zipCode}
+      carcodeLoading={carCodeLoading}
+      hasCarCode={hasCarCode}
       dealersLoading={dealersLoading}
       activeDealerId={activeDealerId}
       onDealerClick={handleDealerClick}

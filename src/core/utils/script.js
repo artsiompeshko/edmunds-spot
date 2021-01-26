@@ -1,4 +1,4 @@
-export function load(url, integrityKey, callback) {
+export function load(url, callback) {
   const scriptTag = document.createElement('script');
   scriptTag.src = url;
 

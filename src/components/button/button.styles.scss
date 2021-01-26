@@ -40,4 +40,19 @@
       background-color: darken($color: #8ccb00, $amount: 4);
     }
   }
+
+  &--blue {
+    background-color: #005396;
+    color: #fff;
+
+    &[disabled],
+    &:disabled {
+      cursor: not-allowed;
+      background-color: lighten($color: #005396, $amount: 4);
+    }
+
+    &:hover:not(:disabled) {
+      background-color: darken($color: #005396, $amount: 4);
+    }
+  }
 }

@@ -16,5 +16,9 @@
 
   &__actions {
     margin-top: 1rem;
+
+    button:not(:last-child) {
+      margin-bottom: 0.5rem;
+    }
   }
 }
