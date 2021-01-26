@@ -11,7 +11,7 @@ const PopupApptContainer = ({ ...props }) => {
   const [activeDaySlot, setActiveDaySlot] = useState(DATE_SLOTS[0]);
   const [number, setNumber] = useState();
   const [submitted, setSubmitted] = useState(false);
-  const [loading, setLoading] = useState(loading);
+  const [loading, setLoading] = useState(false);
 
   const getApptTime = () => {
     let result = [];
