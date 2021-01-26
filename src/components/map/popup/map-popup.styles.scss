@@ -1,0 +1,37 @@
+:global(.leaflet-popup) .map-popup {
+  transition: height 0.15s linear;
+  width: 20rem;
+
+  &--1 {
+    height: 110px;
+  }
+
+  &--2 {
+    height: 340px;
+  }
+
+  &__appt {
+    // animation: appearRight 0.25s ease;
+  }
+
+  @keyframes appearRight {
+    0% {
+      transform: translateX(1000px);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+}
+
+:global(.leaflet-popup-content) {
+  width: auto !important;
+  overflow: hidden;
+  padding: 1rem;
+  margin: 0 !important;
+}
+
+:global(.leaflet-popup-content-wrapper) {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+  border-radius: 0.25rem !important;
+}

@@ -1,0 +1,40 @@
+.schedule {
+  &__time {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__day {
+    display: flex;
+    flex-wrap: nowrap;
+    list-style: none;
+    margin: 0 0 0.5rem;
+    padding: 0;
+  }
+
+  .btn {
+    &--active {
+      background-color: #0069bf !important;
+      color: #fff !important;
+    }
+  }
+
+  button {
+    cursor: pointer;
+    margin-right: 0.25rem;
+    margin-bottom: 0.25rem;
+    border-radius: 0.25rem;
+    background: #fff;
+    border: 1px solid #0069bf;
+    color: #0069bf;
+    transition: color 0.15s linear, border-color 0.15s linear;
+
+    &:hover {
+      border-color: lighten($color: #0069bf, $amount: 15);
+      color: lighten($color: #0069bf, $amount: 15);
+    }
+  }
+}

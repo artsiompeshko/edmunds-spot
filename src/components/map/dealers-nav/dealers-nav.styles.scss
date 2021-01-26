@@ -1,0 +1,54 @@
+.dealers-nav {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  border-radius: 0.25rem;
+  background: #fff;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  overflow-y: auto;
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  li {
+    margin: 0;
+    padding: 1rem;
+    border-bottom: 1px solid #eaeaea;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #eaeaea;
+    }
+  }
+
+  &__center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &__item {
+    &--active {
+      background-color: #eaeaea;
+    }
+  }
+
+  &__name {
+    margin: 0 0 0.25rem 0;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  &__address {
+    color: #777;
+
+    &-line {
+      margin: 0;
+      font-size: 12px;
+    }
+  }
+}

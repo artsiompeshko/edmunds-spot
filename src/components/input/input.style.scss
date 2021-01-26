@@ -1,0 +1,19 @@
+.input {
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  border: 2px solid #e6e6e6;
+  background: #fff;
+  font-size: 1rem;
+  color: #777;
+  outline: none;
+
+  &--sm {
+    padding: 0.25rem 0.5rem;
+  }
+
+  &:active,
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 126, 229, 0.25);
+  }
+}

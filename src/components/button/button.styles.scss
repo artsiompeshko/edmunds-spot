@@ -1,0 +1,43 @@
+.button {
+  padding: 0.25rem 0.75rem;
+  border: 0;
+  margin: 0;
+  border-radius: 0.25rem;
+  font-size: 14px;
+  cursor: pointer;
+  width: 100%;
+
+  &--lg {
+    padding: 0.5rem 1rem;
+  }
+
+  &--secondary {
+    background-color: #e6e6e6;
+    color: #555;
+
+    &[disabled],
+    &:disabled {
+      cursor: not-allowed;
+      background-color: lighten($color: #e6e6e6, $amount: 4);
+    }
+
+    &:hover:not(:disabled) {
+      background-color: darken($color: #e6e6e6, $amount: 4);
+    }
+  }
+
+  &--primary {
+    background-color: #8ccb00;
+    color: #fff;
+
+    &[disabled],
+    &:disabled {
+      cursor: not-allowed;
+      background-color: lighten($color: #8ccb00, $amount: 4);
+    }
+
+    &:hover:not(:disabled) {
+      background-color: darken($color: #8ccb00, $amount: 4);
+    }
+  }
+}

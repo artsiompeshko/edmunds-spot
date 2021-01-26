@@ -1,0 +1,68 @@
+:global(.leaflet-popup) .popup-appt {
+  &__dealer-name {
+    margin: 0 0 0.25rem 0;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  &__thanks {
+    animation: appearRight 0.25s ease;
+    text-align: center;
+
+    p:first-child {
+      font-size: 2rem;
+      margin: 0 0 1rem;
+    }
+    p:nth-child(2) {
+      font-size: 1.25rem;
+      margin: 0 0 0.5rem;
+    }
+    p:nth-child(3) {
+      font-size: 1rem;
+      margin: 0;
+    }
+  }
+
+  @keyframes appearRight {
+    0% {
+      transform: translateX(1000px);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+  &__data {
+    &-label {
+      span {
+        color: red;
+      }
+    }
+
+    input {
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      margin: 0.5rem 0;
+      font-size: 14px;
+    }
+  }
+
+  &__address {
+    color: #777;
+
+    &-line {
+      margin: 0;
+      font-size: 12px;
+    }
+  }
+
+  &__actions {
+    margin-top: 1rem;
+    button:not(:last-child) {
+      margin-bottom: 0.5rem;
+    }
+  }
+}
