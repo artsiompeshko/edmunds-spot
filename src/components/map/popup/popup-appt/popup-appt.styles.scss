@@ -17,20 +17,22 @@
   }
 
   &__thanks {
+    padding: 2rem;
     animation: appearRight 0.25s ease;
     text-align: center;
 
     p:first-child {
-      font-size: 2rem;
+      font-size: 1.5rem;
       margin: 0 0 1rem;
     }
     p:nth-child(2) {
-      font-size: 1.25rem;
+      font-size: 1rem;
       margin: 0 0 0.5rem;
     }
     p:nth-child(3) {
-      font-size: 1rem;
-      margin: 0;
+      color: #777;
+      margin: 3rem 0 0;
+      font-size: 0.875rem;
     }
   }
 

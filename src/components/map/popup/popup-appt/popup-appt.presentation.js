@@ -20,11 +20,11 @@ const PopupAppt = ({
 }) =>
   submitted ? (
     <div class={style['popup-appt__thanks']}>
-      <p>Sent!</p>
-      <p>Thank you for contacting us at {dealer.name}</p>
+      <p>Thanks!</p>
       <p>
-        We will <b>confirm</b> your appointment by texting on your phone number.
+        {dealer.name} will contact you to <b>confirm</b> your appointment
       </p>
+      <p>You can continue texting with the dealer via phone.</p>
     </div>
   ) : (
     <form onSubmit={handleSubmit} class={style['popup-appt']}>
@@ -43,7 +43,14 @@ const PopupAppt = ({
         <p class={style['popup-appt__data-label']}>
           Contact Phone Number: <span>*</span>
         </p>
-        <Input maxlength={14} onInput={handleNumberChange} value={number} size="sm" placeholder="(555) 333-2222" />
+        <Input
+          autofocus
+          maxlength={14}
+          onInput={handleNumberChange}
+          value={number}
+          size="sm"
+          placeholder="(555) 333-2222"
+        />
         <Schedule
           activeTimeSlot={activeTimeSlot}
           activeDaySlot={activeDaySlot}

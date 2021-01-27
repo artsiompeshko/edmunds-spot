@@ -36,7 +36,7 @@ const PopupApptContainer = ({ ...props }) => {
     const url = 'https://dev-dsg11-www.carcode.com/carcode/v1/dealer/sms/widget';
 
     const data = {
-      Body: `Customer needs service appointment. Expected date/time at ${apptTime}`,
+      Body: `Customer requested service appointment. Prefered timeslot ${apptTime}.`,
       To: props.dealer?.carcodeInfo?.servicePhone,
       From: phone,
       referringurl: window.location.href,
