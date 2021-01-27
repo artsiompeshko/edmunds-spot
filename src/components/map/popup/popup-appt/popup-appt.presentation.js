@@ -60,7 +60,7 @@ const PopupAppt = ({
       </div>
       <div class={style['popup-appt__actions']}>
         <Button disabled={invalid || loading} type="submit" size="lg" color="primary">
-          Make Appointment
+          Request an Appointment
         </Button>
         <Button onClick={onCancel} size="lg" color="secondary">
           Go back

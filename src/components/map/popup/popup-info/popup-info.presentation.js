@@ -19,7 +19,7 @@ const PopupInfo = ({ dealer, onAppointmentClick }) => (
     <div class={style['popup-info__actions']}>
       {dealer?.carcodeInfo?.servicePhone && (
         <Button onClick={onAppointmentClick} size="lg" color="primary">
-          Make Appointment
+          Request an Appointment
         </Button>
       )}
       {!dealer?.carcodeInfo?.servicePhone && dealer?.phones?.[0] && (
@@ -33,7 +33,7 @@ const PopupInfo = ({ dealer, onAppointmentClick }) => (
         </Button>
       ) : (
         <Button disabled onClick={onAppointmentClick} size="lg" color="secondary">
-          Messenger Not Available
+          Messaging Not Available
         </Button>
       )}
     </div>
