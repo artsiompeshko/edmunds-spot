@@ -1,5 +1,16 @@
 :global(.leaflet-popup) .popup-appt {
+  &__hours {
+    &-line {
+      font-weight: bold;
+      margin: 0 0 0.5rem;
+      font-size: 12px;
+    }
+  }
+
   &__dealer-name {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
     margin: 0 0 0.25rem 0;
     font-size: 1rem;
     font-weight: 600;

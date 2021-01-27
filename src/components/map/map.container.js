@@ -8,6 +8,7 @@ import { load } from '../../core/utils/script';
 
 import Map from './map.presentation';
 import { loadCarCode } from '../../core/carcode';
+import { WORKING_DAY_MAPPER } from '../../core/constants/working-dates';
 
 const MapContainer = ({ make, zipCode }) => {
   const [mapLoaded, setMapLoaded] = useState(false);
@@ -109,7 +110,16 @@ const MapContainer = ({ make, zipCode }) => {
 
     try {
       setDealersLoading(true);
-      const nextDealers = (await (await fetch(url)).json()).results || [];
+      const nextDealers = ((await (await fetch(url)).json()).results || []).map(dealer => {
+        const workingHours = dealer?.workHours[WORKING_DAY_MAPPER[new Date().getDay()]];
+
+        return {
+          ...dealer,
+          todayWorkingHours: workingHours ? `${workingHours.open} - ${workingHours.close}` : 'Closed',
+        };
+      });
+
+      console.log(nextDealers);
       setDealers(nextDealers);
     } catch (e) {
       setDealers([]);
@@ -141,7 +151,7 @@ const MapContainer = ({ make, zipCode }) => {
   const handleDealerClick = dealerId => {
     const marker = markers[dealerId];
     marker.fire('click');
-    window.map.setView([marker.getLatLng().lat + 0.004, marker.getLatLng().lng - 0.003], DEFAULT_ZOOM);
+    window.map.setView([marker.getLatLng().lat + 0.25, marker.getLatLng().lng - 0.1], DEFAULT_ZOOM);
   };
 
   return (

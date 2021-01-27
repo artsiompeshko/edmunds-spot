@@ -29,6 +29,9 @@ const PopupAppt = ({
   ) : (
     <form onSubmit={handleSubmit} class={style['popup-appt']}>
       <div class={style['popup-appt__dealer-name']}>{dealer.name}</div>
+      <div class={style['popup-appt__hours']}>
+        <p class={style['popup-appt__hours-line']}>{dealer.todayWorkingHours}</p>
+      </div>
       <div class={style['popup-appt__address']}>
         <p class={style['popup-appt__address-line']}>{dealer.address.street}</p>
         <p class={style['popup-appt__address-line']}>

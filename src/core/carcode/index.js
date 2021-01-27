@@ -3,6 +3,7 @@ import { load } from '../utils/script';
 export const loadCarCode = (dealerId, callback) => {
   window.__carcode = {
     skipButton: true,
+    theme: 'edmunds',
     floatingButtonPosition: 'side right center',
   };
 

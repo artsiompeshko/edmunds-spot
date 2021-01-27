@@ -27,6 +27,9 @@ const DealersNav = ({ dealers, dealersLoading, activeDealerId, onDealerClick }) 
                 <Rating rating={dealer.salesRating} />
               </div>
             </div>
+            <div class={style['dealers-nav__hours']}>
+              <p class={style['dealers-nav__hours-line']}>{dealer.todayWorkingHours}</p>
+            </div>
             <div class={style['dealers-nav__address']}>
               <p class={style['dealers-nav__address-line']}>{dealer.address.street}</p>
               <p class={style['dealers-nav__address-line']}>
