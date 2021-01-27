@@ -24,6 +24,17 @@
     }
   }
 
+  &__title {
+    position: relative;
+    padding-right: 4.25rem;
+  }
+
+  &__rating {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
   &__center {
     position: absolute;
     top: 50%;

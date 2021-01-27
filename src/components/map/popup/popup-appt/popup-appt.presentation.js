@@ -40,7 +40,7 @@ const PopupAppt = ({
         <p class={style['popup-appt__data-label']}>
           Contact Phone Number: <span>*</span>
         </p>
-        <Input maxlength={14} onInput={handleNumberChange} value={number} size="sm" placeholder="(555) 2222-333" />
+        <Input maxlength={14} onInput={handleNumberChange} value={number} size="sm" placeholder="(555) 333-2222" />
         <Schedule
           activeTimeSlot={activeTimeSlot}
           activeDaySlot={activeDaySlot}

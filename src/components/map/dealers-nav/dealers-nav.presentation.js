@@ -1,6 +1,8 @@
 import cn from 'classnames';
 import Loading from '../../loading/loading.presentation';
 
+import { Rating } from '../../rating';
+
 import style from './dealers-nav.styles.scss';
 
 const DealersNav = ({ dealers, dealersLoading, activeDealerId, onDealerClick }) => (
@@ -19,8 +21,11 @@ const DealersNav = ({ dealers, dealersLoading, activeDealerId, onDealerClick }) 
             })}
             onClick={() => onDealerClick(dealer.id)}
           >
-            <div>
+            <div class={style['dealers-nav__title']}>
               <p class={style['dealers-nav__name']}>{dealer.name}</p>
+              <div class={style['dealers-nav__rating']}>
+                <Rating rating={dealer.salesRating} />
+              </div>
             </div>
             <div class={style['dealers-nav__address']}>
               <p class={style['dealers-nav__address-line']}>{dealer.address.street}</p>
