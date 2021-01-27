@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'preact/hooks';
 import { render } from 'preact';
+import { route } from 'preact-router';
 
 import { MapPopup } from './popup';
 
@@ -134,19 +135,36 @@ const MapContainer = ({ make, zipCode }) => {
     }
   }, [make, zipCode]);
 
-  async function updateMapLocation() {
-    const location = await (
-      await fetch(`https://dev-dsg11-api.carcode.com/carcode/v1/ccapi/location?zip=${zipCode}`)
-    ).json();
+  async function updateMapLocation(zipCodeToLoad) {
+    let url;
 
-    window.map.setView([location.latitude, location.longitude], DEFAULT_ZOOM);
+    if (zipCodeToLoad) {
+      url = `https://dev-dsg11-api.carcode.com/carcode/v1/ccapi/location?zip=${zipCodeToLoad}`;
+    } else {
+      url = 'https://dev-dsg11-api.carcode.com/carcode/v1/ccapi/location';
+    }
+
+    try {
+      const location = await (await fetch(url)).json();
+      window.map.setView([location.latitude, location.longitude], DEFAULT_ZOOM);
+
+      if (location.zipCode && location.zipCode !== zipCodeToLoad) {
+        route(`/map?make=${make}&zipCode=${location.zipCode}`, true);
+      }
+    } catch (e) {}
   }
 
   useEffect(() => {
     if (zipCode) {
-      updateMapLocation();
+      updateMapLocation(zipCode);
     }
   }, [zipCode]);
+
+  useEffect(() => {
+    if (!zipCode) {
+      updateMapLocation(null);
+    }
+  }, []);
 
   const handleDealerClick = dealerId => {
     const marker = markers[dealerId];

@@ -24,7 +24,7 @@ const PopupInfo = ({ dealer, onAppointmentClick }) => (
       )}
       {!dealer?.carcodeInfo?.servicePhone && dealer?.phones?.[0] && (
         <a href={`tel:+1${dealer.phones[0]}`} class={style['popup-info__phone']}>
-          Call To Dealership
+          Call Dealership
         </a>
       )}
       {dealer?.carcodeInfo?.id ? (

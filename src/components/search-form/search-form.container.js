@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'preact/hooks';
+import { useCallback, useEffect, useState } from 'preact/hooks';
 import { route } from 'preact-router';
 
 import SearchFrom from './search-form.presentation';
@@ -30,6 +30,12 @@ const SearchFormContainer = ({ size = 'md', initialMake, initialZipCode }) => {
     },
     [setZipCode],
   );
+
+  useEffect(() => {
+    if (initialZipCode) {
+      setZipCode(initialZipCode);
+    }
+  }, [initialZipCode]);
 
   return (
     <SearchFrom
