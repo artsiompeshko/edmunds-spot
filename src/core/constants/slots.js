@@ -14,7 +14,7 @@ export const TIME_SLOTS = [
   '9:00 PM',
 ];
 
-const DAY_OF_WEEK = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+const DAY_OF_WEEK = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
 export const DATE_SLOTS = [0, 1, 2, 3, 4, 5, 6, 7].map(i => {
   const now = new Date();
